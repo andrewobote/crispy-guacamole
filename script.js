@@ -7,7 +7,8 @@ const people = {
   person2: {
     id: 8694,
     firstName: "Mary",
-    lastName: "Smith"
+    lastName: "Smith",
+    city: "Los Angeles"
   }
 };
 const Person = function (data) {
