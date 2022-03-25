@@ -1,26 +1,35 @@
-const people = {
-  person1: {
-    id: 3264,
-    firstName: "John",
-    lastName: "Doe"
-  },
-  person2: {
-    id: 8694,
-    firstName: "Mary",
-    lastName: "Smith",
-    city: "Los Angeles"
-  }
-};
-const Person = function (data) {
-  Object.assign(this, data);
-  let values = Object.values(this).join(" ");
-  this.displayPerson = function () {
-    document.getElementById("root").innerHTML += `
-      ${values}<br>
-      `;
-  };
-};
-for (let persona in people) {
-  persona = new Person(people[persona]);
-  persona.displayPerson();
+let people = [
+    {
+        id: 1,
+        name: "John",
+        online: false
+    },
+    {
+        id: 2,
+        name: "Michael",
+        online: true
+    },
+    {
+        id: 3,
+        name: "Mary",
+        online: false
+    }
+]
+
+function Person(data){
+    Object.assign(this, data)
+    const {id, name, online} = this
+    this.personInfo = function(){
+        document.getElementById("root").innerHTML += `
+        ${id} ${name} ${online}<br />
+        `;
+    }
 }
+const john = new Person(people[0])
+john.personInfo()
+
+const michael = new Person(people[1])
+michael.personInfo()
+
+const mary = new Person(people[2])
+mary.personInfo()
