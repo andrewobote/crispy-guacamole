@@ -1,35 +1,16 @@
-let people = [
-    {
-        id: 1,
-        name: "John",
-        online: false
-    },
-    {
-        id: 2,
-        name: "Michael",
-        online: true
-    },
-    {
-        id: 3,
-        name: "Mary",
-        online: false
-    }
-]
-
-function Person(data){
-    Object.assign(this, data)
-    const {id, name, online} = this
-    this.personInfo = function(){
-        document.getElementById("root").innerHTML += `
-        ${id} ${name} ${online}<br />
-        `;
-    }
+function chunkArrayInGroups(arr, size) {
+  let newArr = []
+  let num
+  if(arr.length % 2 === 0){
+      num = (arr.length / size) - 1
+  } else {
+      num = Math.floor(arr.length / size)
+  }
+  for(let i = 0; i < num; i++){
+      let arr1 = arr.splice(0, size)
+      newArr.push(arr1)
+  }
+  newArr.push(arr)
+  return newArr
 }
-const john = new Person(people[0])
-john.personInfo()
-
-const michael = new Person(people[1])
-michael.personInfo()
-
-const mary = new Person(people[2])
-mary.personInfo()
+chunkArrayInGroups(["a", "b", "c", "d", "e"], 2)
