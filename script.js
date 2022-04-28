@@ -13,4 +13,4 @@ function chunkArrayInGroups(arr, size) {
   newArr.push(arr)
   return newArr
 }
-chunkArrayInGroups(["a", "b", "c", "d", "e"], 2)
+chunkArrayInGroups(["a", "b", "c", "d", "e", "f"], 2)
