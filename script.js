@@ -18,11 +18,13 @@ function rot13(message) {
     }
   });
   return arr1
-    .map((n) =>
-      n + 13 > lowerCase.length
-        ? lowerCase[n + 13 - lowerCase.length]
-        : lowerCase[n + 13]
-    )
+    .map((n) => {
+      if(n + 13 > lowerCase.length) {
+        lowerCase.includes(n) ? lowerCase[n + 13 - lowerCase.length] : upperCase[n + 13 - upperCase.length]
+      } else {
+        lowerCase.includes(n) ? lowerCase[n + 13] : upperCase[n + 13]
+      }
+    })
     .join("");
 }
 
