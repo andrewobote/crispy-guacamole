@@ -9,7 +9,7 @@ function rot13(message) {
           arr1.push(i);
         }
       });
-    } else {
+    } else if (upperCase.includes(l)) {
       upperCase.map((x, y) => {
         if (l === x) {
           arr1.push(y);
