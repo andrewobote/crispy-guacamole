@@ -7,5 +7,5 @@ function twoSum(numbers, target) {
       }
     });
   });
-  return [...new Set(arr1)].slice(0, 2);
+  return arr1.slice(0, 2);
 }
