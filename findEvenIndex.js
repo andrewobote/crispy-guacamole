@@ -16,7 +16,7 @@ function findEvenIndex(arr) {
     .reverse();
   for (let i = 0; i < left.length; i++) {
     if (left[i] === right[i]) {
-      arr1.push(left.indexOf(left[i]));
+      arr1.push(i);
     }
   }
   return arr1.length === 0 ? -1 : arr1[0];
