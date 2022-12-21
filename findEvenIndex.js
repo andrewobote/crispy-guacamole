@@ -21,5 +21,5 @@ function findEvenIndex(arr) {
     }
     return arr1.length === 0 ? -1 : arr1[0];
   }
-  findEvenIndex([1, 2, 3, 4, 5, 6]);
+  findEvenIndex([10,-80,10,10,15,35,20]); //6
   
