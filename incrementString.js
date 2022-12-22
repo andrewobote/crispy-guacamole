@@ -4,9 +4,10 @@ function incrementString(strng) {
     if (strng.match(/\d/g)) {
       //return `${Number(strng) + 1}`
       const zero = strng.match(/^[0]+/g).join();
-      console.log(zero.length);
+      //console.log(zero.length);
+      const zeroLength = strng[strng.length - 1] === "9" ? zero.length - 2 : zero.length;
       const addNum = `${Number(strng) + 1}`;
-      return addNum.padStart(strng.length + zero.length, "0");
+      return addNum.padStart(strng.length + zeroLength, "0");
     } else {
       return strng + "1";
     }
@@ -30,6 +31,5 @@ function incrementString(strng) {
     return strPad + num;
   }
 }
-//incrementString("foobar001") //"foobar002"
-//incrementString("foobar00999"); //"foobar01000"
-incrementString("009"); //"010"
+//incrementString("1") //"2"
+incrementString("fo99obar99") //"fo99obar100"
