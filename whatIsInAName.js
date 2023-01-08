@@ -1,15 +1,19 @@
 function whatIsInAName(collection, source) {
   let result = [];
+  let num =
+    Object.keys(source).length % 2 === 0
+      ? Object.keys(source).length - 1
+      : Object.keys(source).length;
   collection.map((a, b) => {
-    console.log(Object.keys(a));
-    if (
-      Object.keys(source).includes(Object.keys(a)) ||
-      Object.values(source).includes(Object.values(a))
-    ) {
-      result.push(a);
+    for (let i = 0; i < num; i++) {
+      if (
+        Object.keys(a).includes(Object.keys(source)[i]) &&
+        Object.values(a).includes(Object.values(source)[i])
+      ) {
+        result.push(a);
+      }
     }
   });
-  console.log(Object.keys(source));
   return result;
 }
 
@@ -27,5 +31,8 @@ function whatIsInAName(collection, source) {
   return result;
 }
 
-whatIsInAName([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "bat": 2 }) 
+whatIsInAName(
+  [{ apple: 1, bat: 2 }, { bat: 2 }, { apple: 1, bat: 2, cookie: 2 }],
+  { apple: 1, bat: 2 }
+);
 // [{ "apple": 1, "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }]
