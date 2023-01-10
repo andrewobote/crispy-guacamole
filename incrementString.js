@@ -58,3 +58,19 @@ whatIsInAName(
   ],
   { last: "Capulet" }
 );
+
+function findNextSquare(sq) {
+  let result = 0;
+  let num = sq + 1;
+  if (Number.isInteger(Math.sqrt(sq))) {
+    while (result === 0) {
+      let i = num++;
+      if (Number.isInteger(Math.sqrt(i))) {
+        result = i;
+      }
+    }
+  } else {
+    return -1;
+  }
+  return result;
+}
