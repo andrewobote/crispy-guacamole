@@ -36,3 +36,18 @@ whatIsInAName(
   { apple: 1, bat: 2 }
 );
 // [{ "apple": 1, "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }]
+
+function whatIsInAName(collection, source) {
+  let result = [];
+  collection.map((a) => {
+    if (
+      Object.keys(source).every((b) => Object.keys(a).includes(b)) &&
+      Object.values(source).every((c) => Object.values(a).includes(c))
+      // || (Object.keys(a).every((b) => Object.keys(source).includes(b)) &&
+      // Object.values(a).every((c) => Object.values(source).includes(c)))
+    ) {
+      result.push(a);
+    }
+  });
+  return result;
+}
