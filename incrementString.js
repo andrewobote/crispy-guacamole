@@ -74,3 +74,20 @@ function findNextSquare(sq) {
   }
   return result;
 }
+
+function sumDigPow(a, b) {
+  const arr1 = [89, 15, 78];
+  const arr2 = [];
+  for (let y = 0; y < arr1.length; y++) {
+    for (let i = 0; i < arr1[y].length; i++) {
+      if (
+        Math.pow(arr1[y][i], i + 1) + Math.pow(arr1[y][i + 1], i + 2) ===
+        arr1[y][i]
+      ) {
+        arr2.push(arr1[y][i]);
+      }
+    }
+  }
+  return arr2;
+}
+sumDigPow(1, 100);
