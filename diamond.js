@@ -17,3 +17,14 @@ function diamond(n) {
     return null;
   }
 }
+
+function towerBuilder(nFloors) {
+  const arr1 = [];
+  for (let a = 0; a < nFloors; a++) {
+    arr1.push(new Array());
+    arr1[a].push(`${nFloors - a - 1} ${a * 2 + 1} ${nFloors - a - 1}`);
+  }
+  const arr2 = arr1.map((b) => b[0].split(" "));
+  return arr2;
+}
+towerBuilder(6);
