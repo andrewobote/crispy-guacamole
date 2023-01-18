@@ -75,19 +75,35 @@ function findNextSquare(sq) {
   return result;
 }
 
-function sumDigPow(a, b) {
-  const arr1 = [89, 15, 78];
+function sumDigPow(e, f) {
+  const arr1 = [];
   const arr2 = [];
+  const arr3 = [];
+  for (let g = e; g <= f; g++) {
+    arr1.push(g.toString());
+  }
   for (let y = 0; y < arr1.length; y++) {
+    arr2.push(new Array());
     for (let i = 0; i < arr1[y].length; i++) {
-      if (
-        Math.pow(arr1[y][i], i + 1) + Math.pow(arr1[y][i + 1], i + 2) ===
-        arr1[y][i]
-      ) {
-        arr2.push(arr1[y][i]);
-      }
+      arr2[y].push(Math.pow(arr1[y][i], i + 1));
     }
   }
+  arr2.map(
+    (a, b) =>
+      a.reduce((c, d) => c + d) === Number(arr1[b]) &&
+      arr3.push(a.reduce((c, d) => c + d))
+  );
+  return arr3;
+}
+sumDigPow(10, 150);
+
+function towerBuilder(nFloors) {
+  const arr1 = [];
+  for (let a = 0; a < nFloors; a++) {
+    arr1.push(new Array());
+    arr1[a].push(`${nFloors - a - 1} ${a * 2 + 1} ${nFloors - a - 1}`);
+  }
+  const arr2 = arr1.map((b) => b[0].split(" "));
   return arr2;
 }
-sumDigPow(1, 100);
+towerBuilder(6);
