@@ -20,11 +20,21 @@ function diamond(n) {
 
 function towerBuilder(nFloors) {
   const arr1 = [];
+  const arr3 = [];
   for (let a = 0; a < nFloors; a++) {
     arr1.push(new Array());
     arr1[a].push(`${nFloors - a - 1} ${a * 2 + 1} ${nFloors - a - 1}`);
   }
-  const arr2 = arr1.map((b) => b[0].split(" "));
-  return arr2;
+  const arr2 = arr1
+    .map((b) => b[0].split(" "))
+    .map((c) => c.map((d) => Number(d)));
+  arr2.map((e, f) => {
+    if (f === arr2.length - 1) {
+      arr3.push(`${"*".repeat(e[1])}`);
+    } else {
+      arr3.push(`${"#".repeat(e[0])}${"*".repeat(e[1])}${"#".repeat(e[2])}`);
+    }
+  });
+  return arr3;
 }
-towerBuilder(6);
+towerBuilder(2);
