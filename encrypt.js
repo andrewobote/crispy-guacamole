@@ -26,25 +26,26 @@ function encrypt(text, n) {
   }
   return result;
 }
+encrypt("the poetry of espionage", 3)
 
-function decrypt(encryptedText, n) {
-  if ((encryptedText && encryptedText.length < 1) || n < 1) {
-    return encryptedText;
+function decrypt(text, n) {
+  let result = text;
+  if (result === null) {
+    return null;
   } else {
-    let num = 0;
-    if (n % 2 == 0) {
-      num = 0;
-    } else {
-      num = encryptedText.length % 2 == 0 ? 3 : 2;
-    }
-    let result = encryptedText;
-    while (n + num > 0) {
-      result = [
-        ...result.split("").filter((a, b) => b % 2 != 0),
-        ...result.split("").filter((c, d) => d % 2 == 0),
-      ].join("");
+    while (n > 0) {
+      let firstHalf = result.slice(0, Math.floor(result.length / 2));
+      let secondHalf = result.slice(Math.floor(result.length / 2));
+      result = "";
+      for (let i = 0; i < firstHalf.length; i++) {
+        result += secondHalf[i] + firstHalf[i];
+      }
+      if (secondHalf.length > firstHalf.length) {
+        result += secondHalf[secondHalf.length - 1];
+      }
       n--;
     }
     return result;
   }
 }
+decrypt("tstrphyie o onpfao geee", 3)
