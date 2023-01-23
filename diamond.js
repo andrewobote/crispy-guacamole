@@ -37,4 +37,4 @@ function towerBuilder(nFloors) {
   });
   return arr3;
 }
-towerBuilder(2);
+towerBuilder(4);
