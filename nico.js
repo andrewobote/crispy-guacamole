@@ -6,7 +6,15 @@ function nico(key, message) {
   }
   const regex = new RegExp(`.{1,${key.length}}`, "g");
   const arr3 = message.match(regex);
+  const arr4 = [];
+   arr3.map(a => {
+        if(a.length < key.length) {
+            arr4.push(a.padEnd(key.length, " "));
+        } else {
+            arr4.push(a)
+        }
+    })
   console.log(arr2);
-  console.log(arr3);
+  console.log(arr4);
 }
-nico("abc", "abcd");
+nico("crazy", "secretinformation")
