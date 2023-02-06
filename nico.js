@@ -16,7 +16,14 @@ function nico(key, message) {
   });
   const arr5 = [];
   arr4.map((a) => arr5.push(a.split("")));
-  console.log(arr2);
-  console.log(arr5);
+  const arr6 = [];
+  for (let y = 0; y < arr5.length; y++) {
+    arr6.push(new Array());
+    for (let i = 0; i < arr2.length; i++) {
+      arr6[y][arr2[i] - 1] = arr5[y][i];
+    }
+  }
+  const result = arr6.map((a) => a.join(""));
+  return result.join("");
 }
 nico("crazy", "secretinformation"); //"cseerntiofarmit on  "
