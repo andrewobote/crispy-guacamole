@@ -23,6 +23,7 @@ const Todo = () => {
     } catch (e) {
       console.error("Error adding document: ", e);
     }
+    setTodo("");
   };
 
   const delTodo = async (id) => {
@@ -102,11 +103,16 @@ const Todo = () => {
             <input
               type="text"
               placeholder="What do you have to do today?"
+              value={todo}
               onChange={(e) => setTodo(e.target.value)}
             />
           </div>
           <div className="btn-container">
-            <button type="submit" className="btn" onClick={addTodo}>
+            <button
+              type="submit"
+              className="btn"
+              onClick={todo ? addTodo : null}
+            >
               Add
             </button>
           </div>
